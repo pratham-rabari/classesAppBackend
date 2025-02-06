@@ -62,7 +62,9 @@ let onListening = () => {
 /**
  * Get port from environment and store in Express.
  */
-let port = normalizePort(process.env.PORT);
+// let port = normalizePort(process.env.PORT);
+let port = normalizePort(process.env.PORT || "3000");
+
 
 app.set("port", port);
 
@@ -70,7 +72,7 @@ let server = createServer(app);
 
 app.use(express.static(path.join(__dirname + './../../uploads')))
 
-server.listen(port, process.env.HOST, function () {
+server.listen(port, process.env.HOST || '0.0.0.0', function () {
     console.log(
         "Express server listening on %d, in %s mode",
         process.env.PORT,
