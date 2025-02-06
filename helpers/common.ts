@@ -8,7 +8,7 @@ export default class CommonTaskController {
 
   constructor() {
     this.verifyToken = this.verifyToken.bind(this);
-    // this.generateJWT = this.generateJWT.bind(this);
+    this.generateJWT = this.generateJWT.bind(this);
     this.AddActivityLog = this.AddActivityLog.bind(this);
     this.GeneratePass = this.GeneratePass.bind(this);
   }
@@ -60,56 +60,23 @@ export default class CommonTaskController {
   }
 
   // To generate JWT token
-  // generateJWT(tokenObj: any, expiry?: string) {
-  //   if(!tokenObj){
-  //     return;
-  //   }
-  //   let obj = { ...tokenObj }
-  //   let token: any;
-  //   if (expiry) {
-  //     token = jwt.sign(
-  //       { ...tokenObj },
-  //       process.env.JWTSECRET,
-  //       { expiresIn: expiry }
-  //     );
-  //   } else {
-  //     token = jwt.sign({ ...tokenObj }, process.env.JWTSECRET);
-  //   }
-  //   return token;
-  // }
-
-//   generateJWT(tokenObj: any, expiry?: string) {
-//   let secretKey = process.env.JWTSECRET as string;  // Ensure it's a string
-//   if (!secretKey) {
-//     throw new Error("JWTSECRET is not defined in environment variables");
-//   }
-
-//   let token: any;
-//   if (expiry) {
-//     token = jwt.sign({ ...tokenObj }, secretKey, { expiresIn: expiry });
-//   } else {
-//     token = jwt.sign({ ...tokenObj }, secretKey);
-//   }
-//   return token;
-// }
-
-// generateJWT(tokenObj: any, expiry?: string) {
-//   const secretKey = process.env.JWTSECRET;  // Ensure it is a string
-
-//   if (!secretKey) {
-//     throw new Error("JWTSECRET is not defined in environment variables");
-//   }
-
-//   // Generate token with proper types
-//   const token = jwt.sign(
-//     tokenObj, 
-//     secretKey, 
-//     { expiresIn: expiry }
-//   );
-
-//   return token;
-// }
-
+  generateJWT(tokenObj: any, expiry?: string) {
+    if(!tokenObj){
+      return;
+    }
+    let obj = { ...tokenObj }
+    let token: any;
+    if (expiry) {
+      token = jwt.sign(
+        { ...tokenObj },
+        process.env.JWTSECRET,
+        { expiresIn: expiry }
+      );
+    } else {
+      token = jwt.sign({ ...tokenObj }, process.env.JWTSECRET);
+    }
+    return token;
+  }
 
   async AddActivityLog(data) {
     try {
