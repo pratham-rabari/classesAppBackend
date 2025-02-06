@@ -91,7 +91,7 @@ export default class CommonTaskController {
 // }
 
 generateJWT(tokenObj: any, expiry?: string) {
-  const secretKey = process.env.JWTSECRET as string;  // Ensure it is a string
+  const secretKey = process.env.JWTSECRET;  // Ensure it is a string
 
   if (!secretKey) {
     throw new Error("JWTSECRET is not defined in environment variables");
