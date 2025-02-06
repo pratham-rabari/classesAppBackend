@@ -60,20 +60,35 @@ export default class CommonTaskController {
   }
 
   // To generate JWT token
+  // generateJWT(tokenObj: any, expiry?: string) {
+  //   let obj = { ...tokenObj }
+  //   let token: any;
+  //   if (expiry) {
+  //     token = jwt.sign(
+  //       { ...tokenObj },
+  //       process.env.JWTSECRET,
+  //       { expiresIn: expiry }
+  //     );
+  //   } else {
+  //     token = jwt.sign({ ...tokenObj }, process.env.JWTSECRET);
+  //   }
+  //   return token;
+  // }
+
   generateJWT(tokenObj: any, expiry?: string) {
-    let obj = { ...tokenObj }
-    let token: any;
-    if (expiry) {
-      token = jwt.sign(
-        { ...tokenObj },
-        process.env.JWTSECRET,
-        { expiresIn: expiry }
-      );
-    } else {
-      token = jwt.sign({ ...tokenObj }, process.env.JWTSECRET);
-    }
-    return token;
+  let secretKey = process.env.JWTSECRET as string;  // Ensure it's a string
+  if (!secretKey) {
+    throw new Error("JWTSECRET is not defined in environment variables");
   }
+
+  let token: any;
+  if (expiry) {
+    token = jwt.sign({ ...tokenObj }, secretKey, { expiresIn: expiry });
+  } else {
+    token = jwt.sign({ ...tokenObj }, secretKey);
+  }
+  return token;
+}
 
   async AddActivityLog(data) {
     try {
