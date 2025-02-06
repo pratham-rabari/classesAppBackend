@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const models = require("./../models/index");
 import { HttpCodes } from "./../helpers/httpCodes";
 import common from './../helpers/common';
-const { generateJWT, AddActivityLog, GeneratePass } = new common();
+const {AddActivityLog, GeneratePass } = new common();
 import httpMessages from "./../helpers/httpMessages";
 import { where } from 'sequelize';
 
