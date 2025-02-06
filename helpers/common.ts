@@ -61,6 +61,9 @@ export default class CommonTaskController {
 
   // To generate JWT token
   generateJWT(tokenObj: any, expiry?: string) {
+    if(!tokenObj){
+      return;
+    }
     let obj = { ...tokenObj }
     let token: any;
     if (expiry) {
