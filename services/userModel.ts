@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 const models = require("./../models/index");
 import { HttpCodes } from "./../helpers/httpCodes";
 import common from './../helpers/common';
-const {AddActivityLog, GeneratePass } = new common();
+const { generateJWT,AddActivityLog, GeneratePass } = new common();
 import httpMessages from "./../helpers/httpMessages";
 import { where } from 'sequelize';
 
@@ -39,7 +39,7 @@ export default class UserModel {
           let tokenObj = {
             userId: userObj.userId,
           }
-          // const token = generateJWT(tokenObj, '8h');
+          const token = generateJWT(tokenObj, '8h');
           let result = {
             userId: userObj.userId,
             role: userObj.Role.role,
