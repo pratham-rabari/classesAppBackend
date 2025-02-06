@@ -90,8 +90,6 @@ export default class CommonTaskController {
 //   return token;
 // }
 
-  import jwt from "jsonwebtoken";
-
 generateJWT(tokenObj: any, expiry?: string) {
   const secretKey = process.env.JWTSECRET as string;  // Ensure it is a string
 
