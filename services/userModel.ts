@@ -39,7 +39,7 @@ export default class UserModel {
           let tokenObj = {
             userId: userObj.userId,
           }
-          const token = generateJWT(tokenObj, '8h');
+          // const token = generateJWT(tokenObj, '8h');
           let result = {
             userId: userObj.userId,
             role: userObj.Role.role,
@@ -48,7 +48,7 @@ export default class UserModel {
             firstName: userObj.firstName,
             lastName: userObj.lastName,
             email: userObj.email,
-            token: token
+            // token: token
           }
           AddActivityLog({
             userId: userObj.userId,
