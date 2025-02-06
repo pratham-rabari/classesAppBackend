@@ -8,7 +8,7 @@ export default class CommonTaskController {
 
   constructor() {
     this.verifyToken = this.verifyToken.bind(this);
-    this.generateJWT = this.generateJWT.bind(this);
+    // this.generateJWT = this.generateJWT.bind(this);
     this.AddActivityLog = this.AddActivityLog.bind(this);
     this.GeneratePass = this.GeneratePass.bind(this);
   }
