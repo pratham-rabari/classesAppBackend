@@ -14,9 +14,14 @@ let sequelize = new Sequelize(process.env.DATABASE, process.env.DBUSER, process.
     define: {
         timestamps: false
     },
-  ssl:{
-      // ca:fs.readFileSync(path.resolve(__dirname, process.env.CA))
-        // ca: fs.readFileSync(path.join(__dirname, '../cert/isrgrootx.pem'))
+  // ssl:{
+  //     ca:fs.readFileSync(path.resolve(__dirname, process.env.CA))
+  //       ca: fs.readFileSync(path.join(__dirname, '../cert/isrgrootx.pem'))
+  //   }
+  dialectOptions: {
+      ssl: {
+        ca: process.env.CA.replace(/\\n/g, '\n') // Convert `\n` back to real newlines
+      }
     }
  
     // timezone: '+05:30',
