@@ -14,9 +14,12 @@ let sequelize = new Sequelize(process.env.DATABASE, process.env.DBUSER, process.
     define: {
         timestamps: false
     },
-  ssl:{
-      ca:fs.readFileSync(process.env.CA)
-    }
+  // ssl:{
+  //     ca:fs.readFileSync(process.env.CA)
+  //   }
+  const sslOptions = {
+  ca: fs.readFileSync(path.resolve(__dirname, process.env.CA))
+};
     // timezone: '+05:30',
     // timezone problem
 });
