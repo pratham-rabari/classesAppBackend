@@ -48,7 +48,7 @@ export default class UserModel {
             firstName: userObj.firstName,
             lastName: userObj.lastName,
             email: userObj.email,
-            // token: token
+            token: token
           }
           AddActivityLog({
             userId: userObj.userId,
