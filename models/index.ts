@@ -15,7 +15,8 @@ let sequelize = new Sequelize(process.env.DATABASE, process.env.DBUSER, process.
         timestamps: false
     },
   ssl:{
-      ca:fs.readFileSync(path.resolve(__dirname, process.env.CA))
+      // ca:fs.readFileSync(path.resolve(__dirname, process.env.CA))
+        ca: fs.readFileSync(path.join(__dirname, '../cert/isrgrootx.pem'))
     }
  
     // timezone: '+05:30',
