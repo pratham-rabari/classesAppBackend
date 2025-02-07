@@ -40,6 +40,9 @@ import upload from '../../services/multer'
 //TODO: User crud is pending
 //TODO: Company vise branch and branch vise user crud is pending
 
+router.get("/",((req,res)=>{
+  res.send("hello")
+}))
 
 router.post('/login', login, Login);
 router.post('/forgotPassword', forgotPassword, ForgotPassword);
