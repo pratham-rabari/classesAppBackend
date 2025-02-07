@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt ,{ Secret } from "jsonwebtoken";
 import fs from 'fs';
 import * as path from 'path';
 import { HttpCodes } from "./../helpers/httpCodes";
