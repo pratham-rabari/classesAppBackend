@@ -78,7 +78,7 @@ export default class CommonTaskController {
   //   return token;
   // }
 
-   generateJWT(tokenObj: any, expiry?: string): string {
+   generateJWT(tokenObj: any, expiry?: string){
 
      console.log(process.env.JWTSECRET,"x")
     const secretKey: Secret | undefined = process.env.JWTSECRET;
@@ -90,7 +90,6 @@ export default class CommonTaskController {
   return expiry
     ? jwt.sign(tokenObj, secretKey as Secret, { expiresIn: expiry })
     : jwt.sign(tokenObj, secretKey as Secret);
-  }
 }
 
   async AddActivityLog(data) {
