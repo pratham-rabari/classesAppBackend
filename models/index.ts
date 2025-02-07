@@ -20,7 +20,8 @@ let sequelize = new Sequelize(process.env.DATABASE, process.env.DBUSER, process.
   //   }
   dialectOptions: {
       ssl: {
-        ca: process.env.CA.replace(/\\n/g, '\n') // Convert `\n` back to real newlines
+        ca: process.env.CA.replace(/\\n/g, '\n'),
+        rejectUnauthorized: false 
       }
     }
  
