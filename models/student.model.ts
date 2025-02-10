@@ -85,7 +85,7 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.INTEGER,
         defaultValue: 1,
       },
-      intallmentCount:{
+      installmentCount:{
         type: DataTypes.INTEGER,
         allowNull: true,
       },
