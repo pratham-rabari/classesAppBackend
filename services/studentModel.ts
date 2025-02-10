@@ -178,7 +178,7 @@ export default class StudentModel {
   async UpdateStudent(data: any, file: any, callback: any) {
     try {
 
-      const studentRecord = await models.Students.findOne({ where: { studentId: data.studentId } });
+      const studentRecord = await models.Student.findOne({ where: { studentId: data.studentId } });
       console.log(data, "d")
       let studentsObj = {
         firstName: data.firstName ? data.firstName : null,
@@ -375,7 +375,7 @@ export default class StudentModel {
         MUID: data.decoded.userId,
         MDT: Date.now()
       }
-      await models.Students.update(student, { where: { studentId: params.studentId } });
+      await models.Student.update(student, { where: { studentId: params.studentId } });
       AddActivityLog({
         module: 'Student',
         userId: data.decoded.userId,
@@ -395,7 +395,7 @@ export default class StudentModel {
         MUID: data.decoded.userId,
         MDT: Date.now()
       }
-      await models.Students.update(student, { where: { studentId: params.studentId } });
+      await models.Student.update(student, { where: { studentId: params.studentId } });
       AddActivityLog({
         module: 'Student',
         userId: data.decoded.userId,
@@ -413,7 +413,7 @@ export default class StudentModel {
 
       const standard = await models.Standard.findOne({ where: { name: params.standardName } });
 
-      const students = await models.Students.findAll({
+      const students = await models.Student.findAll({
         where: { standardId: standard.standardId, status: 1 },
         attributes: [
           'studentId',
