@@ -113,7 +113,7 @@ export default class StudentModel {
   // to get a particuler student data
   async GetStudentData(params: any, callback) {
     try {
-      let student = await models.Students.findOne({
+      let student = await models.Student.findOne({
         where: { studentId: params.studentId }, attributes: [
           'studentId',
           'firstName',
