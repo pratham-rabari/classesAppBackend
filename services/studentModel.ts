@@ -201,9 +201,9 @@ export default class StudentModel {
         MDT: Date.now()
       }
       console.log(studentsObj.totalFees, "s2")
-      await models.Students.update(studentsObj, { where: { studentId: data.studentId } });
+      await models.Student.update(studentsObj, { where: { studentId: data.studentId } });
 
-      const fstudent = await models.Students.findOne({
+      const fstudent = await models.Student.findOne({
         where: { studentId: data.studentId },
         attributes: [
           'paymentType',
