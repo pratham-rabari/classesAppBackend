@@ -102,7 +102,7 @@ export default class StandardModel {
     try {
       let standardObj = {
         name: data.name,
-        stndardaIndex : data.standardIndex,
+        standardIndex : data.standardIndex,
         MUID: data.decoded.userId,
         MDT: Date.now()
       }
