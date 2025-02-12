@@ -43,9 +43,9 @@ export default class StudentModel {
         motherName: data.motherName ? data.motherName : null,
         parentContactNo: data?.parentContactNo,
         emergencyContactNo: data?.emergencyContactNo,
-        paymentType: data.paymentType?data.paymentType:null,
-        totalFees: data.totalFees?data.totalFees:null,
-        installMentCount: data.installMentCount ? data.installMentCount : null,
+        // paymentType: data.paymentType?data.paymentType:null,
+        // totalFees: data.totalFees?data.totalFees:null,
+        // installMentCount: data.installMentCount ? data.installMentCount : null,
         CUID: data.decoded.userId,
         CDT: Date.now()
       });
