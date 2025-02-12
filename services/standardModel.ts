@@ -81,7 +81,7 @@ export default class StandardModel {
     try {
       let standard = models.Standard.build({
         name: data.name,
-        stndardaIndex : data.standardIndex,
+        standardIndex : data.standardIndex,
         CUID: data.decoded.userId,
         CDT: Date.now()
       });
