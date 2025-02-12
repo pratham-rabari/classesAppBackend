@@ -56,45 +56,44 @@ export default class StudentModel {
       let studentObj = await student.save();
 
 
-      if (data.paymentType == "OneTime") {
+      // if (data.paymentType == "OneTime") {
 
-        if (data.feeStatus == 0) {
-          const feeDetails = await models.FeesDetails.build({
-            studentId: studentObj.studentId,
-            installmentDate: data?.dueDate,
-            installmentAmount: data?.totalFees,
-            status: 0,
-            CUID: data.decoded.userId,
-            CDT: Date.now()
-          }).save()
-        } else {
-          const feeDetails = await models.FeesDetails.build({
-            studentId: studentObj.studentId,
-            paymentDate: data?.paymentDate,
-            paymentType: data?.feePaymentType,
-            status: 1,
-            CUID: data.decoded.userId,
-            CDT: Date.now()
-          }).save()
-        }
+      //   if (data.feeStatus == 0) {
+      //     const feeDetails = await models.FeesDetails.build({
+      //       studentId: studentObj.studentId,
+      //       installmentDate: data?.dueDate,
+      //       installmentAmount: data?.totalFees,
+      //       status: 0,
+      //       CUID: data.decoded.userId,
+      //       CDT: Date.now()
+      //     }).save()
+      //   } else {
+      //     const feeDetails = await models.FeesDetails.build({
+      //       studentId: studentObj.studentId,
+      //       paymentDate: data?.paymentDate,
+      //       paymentType: data?.feePaymentType,
+      //       status: 1,
+      //       CUID: data.decoded.userId,
+      //       CDT: Date.now()
+      //     }).save()
+      //   }
 
-      } else {
-        const installmentsDate = JSON.parse(data?.installmentsDate);
+      // } else {
+      //   const installmentsDate = JSON.parse(data?.installmentsDate);
 
-        const installmentAmounts = JSON.parse(data?.installmentAmounts);
-        console.log(data.installmentAmounts)
+      //   const installmentAmounts = JSON.parse(data?.installmentAmounts);
+      //   console.log(data.installmentAmounts)
 
-        const feesDetails = installmentsDate?.map((date, index) => ({
-          studentId: studentObj.studentId,
-          installmentAmount: parseFloat(installmentAmounts[index]).toFixed(2),
-          installmentDate: date,
-          CUID: data.decoded.userId,
-          CDT: Date.now()
-        }));
-        console.log(feesDetails, "fees")
-        // Insert the data into the database using bulkCreate
-        const AddFeesDetails = await models.FeesDetails.bulkCreate(feesDetails);
-      }
+      //   const feesDetails = installmentsDate?.map((date, index) => ({
+      //     studentId: studentObj.studentId,
+      //     installmentAmount: parseFloat(installmentAmounts[index]).toFixed(2),
+      //     installmentDate: date,
+      //     CUID: data.decoded.userId,
+      //     CDT: Date.now()
+      //   }));
+      //   console.log(feesDetails, "fees")
+      //   const AddFeesDetails = await models.FeesDetails.bulkCreate(feesDetails);
+      // }
 
       console.log("hell")
       AddActivityLog({
